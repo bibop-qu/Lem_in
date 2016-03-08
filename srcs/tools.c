@@ -14,7 +14,8 @@
 
 void	ft_error(char *error)
 {
-	ft_putendl(error);
+	write(2, error, ft_strlen(error));
+	write(2, "\n", 1);
 	exit(1);
 }
 

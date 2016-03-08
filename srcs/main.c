@@ -16,8 +16,12 @@ int		main(void)
 {
 	t_data	anthill;
 
-	verif_anthill(&anthill);
-	ft_putnbr(anthill.nbr_ant);
-	ft_putchar('\n');
+	if (verif_anthill(&anthill))
+	{
+		ft_putnbr(anthill.nbr_ant);
+		ft_putchar('\n');
+	}
+	else
+		ft_error("ERROR");
 	return (0);
 }

@@ -12,10 +12,11 @@
 
 #include "lem-in.h"
 
-void	verif_anthill(t_data *anthill)
+int		verif_anthill(t_data *anthill)
 {
 	char	*line;
 	int		status;
+	t_room	*room;
 
 	line = NULL;
 	status = 0;
@@ -26,5 +27,12 @@ void	verif_anthill(t_data *anthill)
 			anthill->nbr_ant = ft_atoi(line);
 			status = 1;
 		}
+		else if (status == 1 && anthill->nbr_ant < 1)
+			ft_error("WRONG NUMBER OF ANTH !!");
+		else if (status == 1 && verif_line_room(line) == 0)
+			ft_error("BAD ROOM DECLARATION");
+		else if (status == 1 && verif_line_room(line))
+			ft_add_room(room, line);
 	}
+	return (1);
 }

@@ -10,8 +10,8 @@
 #                                                                              #
 #******************************************************************************#
 
-SRCS =	srcs/main.c srcs/tools.c srcs/init.c
-OBJS =	main.o tools.o init.o
+SRCS =	srcs/main.c srcs/tools.c srcs/init.c srcs/verif.c srcs/struct_tools.c
+OBJS =	main.o tools.o init.o verif.o struct_tools.o
 NAME = lem-in 
 CFLAG = -Wall -Wextra -Werror
 

@@ -13,6 +13,6 @@
 #ifndef INIT_H
 # define INIT_H
 
-void	verif_anthill(t_data *anthill);
+int		verif_anthill(t_data *anthill);
 
 #endif
