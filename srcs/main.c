@@ -20,6 +20,7 @@ int		main(void)
 	{
 		ft_putnbr(anthill.nbr_ant);
 		ft_putchar('\n');
+		ft_putendl(anthill.room->name);
 	}
 	else
 		ft_error("ERROR");

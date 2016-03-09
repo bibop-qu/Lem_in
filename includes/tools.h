@@ -15,5 +15,6 @@
 
 void	ft_error(char *error);
 void	print_anthill(char **anthill);
+void	free_tab(char **tab);
 
 #endif

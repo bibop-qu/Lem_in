@@ -19,6 +19,7 @@ int		verif_anthill(t_data *anthill)
 	t_room	*room;
 
 	line = NULL;
+	room = NULL;
 	status = 0;
 	while (get_next_line(0, &line))
 	{
@@ -32,7 +33,8 @@ int		verif_anthill(t_data *anthill)
 		else if (status == 1 && verif_line_room(line) == 0)
 			ft_error("BAD ROOM DECLARATION");
 		else if (status == 1 && verif_line_room(line))
-			ft_add_room(room, line);
+			room = ft_add_room(room, line);
 	}
+	anthill->room = room;
 	return (1);
 }

@@ -31,8 +31,8 @@ typedef struct		s_room
 typedef struct		s_data
 {
 	int		nbr_ant;
-	t_room	room;
-	t_pipe	pipe;
+	t_room	*room;
+	t_pipe	*pipe;
 	char	*start;
 	char	*end;
 }					t_data;

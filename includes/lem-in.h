@@ -20,4 +20,5 @@
 # include "tools.h"
 # include "init.h"
 # include "verif.h"
+# include "struct_tools.h"
 #endif
