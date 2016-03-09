@@ -6,12 +6,12 @@
 #    By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/07 16:41:17 by basle-qu          #+#    #+#              #
-#    Updated: 2016/03/07 18:13:06 by basle-qu         ###   ########.fr        #
+#    Updated: 2016/03/09 15:20:13 by basle-qu         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-SRCS =	srcs/main.c srcs/tools.c srcs/init.c srcs/verif.c srcs/struct_tools.c
-OBJS =	main.o tools.o init.o verif.o struct_tools.o
+SRCS =	srcs/main.c srcs/tools.c srcs/init.c srcs/verif.c srcs/struct_tools.c srcs/print.c
+OBJS =	main.o tools.o init.o verif.o struct_tools.o print.o
 NAME = lem-in 
 CFLAG = -Wall -Wextra -Werror
 

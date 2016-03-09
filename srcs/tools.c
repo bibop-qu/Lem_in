@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:48:53 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/07 18:12:22 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/09 15:20:56 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,6 @@ void	ft_error(char *error)
 	write(2, error, ft_strlen(error));
 	write(2, "\n", 1);
 	exit(1);
-}
-
-void	print_anthill(char **anthill)
-{
-	int		i;
-
-	i = 0;
-	while (anthill[i])
-	{
-		ft_putendl(anthill[i]);
-		i++;
-	}
 }
 
 void	free_tab(char **tab)

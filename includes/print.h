@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/07 16:42:35 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/09 15:22:25 by basle-qu         ###   ########.fr       */
+/*   Created: 2016/03/09 15:19:02 by basle-qu          #+#    #+#             */
+/*   Updated: 2016/03/09 15:19:35 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem-in.h"
+#ifndef PRINT_H
+# define PRINT_H
 
-int		main(void)
-{
-	t_data	anthill;
+void	print_anthill(t_data *anthill);
 
-	if (verif_anthill(&anthill))
-		print_anthill(&anthill);
-	else
-		ft_error("ERROR");
-	return (0);
-}
+#endif

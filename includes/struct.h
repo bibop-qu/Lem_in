@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 18:56:52 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/07 19:41:59 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/09 16:01:22 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ typedef struct		s_data
 	int		nbr_ant;
 	t_room	*room;
 	t_pipe	*pipe;
-	char	*start;
-	char	*end;
+	t_room	*start;
+	t_room	*end;
 }					t_data;
 
 #endif

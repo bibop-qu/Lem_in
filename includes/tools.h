@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:50:00 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/07 18:10:23 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/09 15:21:03 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define TOOLS_H
 
 void	ft_error(char *error);
-void	print_anthill(char **anthill);
 void	free_tab(char **tab);
 
 #endif
