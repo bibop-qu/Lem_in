@@ -13,13 +13,6 @@
 #ifndef STRUCT_H
 # define STRUCT_H
 
-typedef struct		s_pipe
-{
-	char			*room_1;
-	char			*room_2;
-	struct s_pipe	*next;
-}					t_pipe;
-
 typedef struct		s_room
 {
 	char			*name;
@@ -27,6 +20,13 @@ typedef struct		s_room
 	int				pos_y;
 	struct s_room	*next;
 }					t_room;
+
+typedef struct		s_pipe
+{
+	t_room			*room_1;
+	t_room			*room_2;
+	struct s_pipe	*next;
+}					t_pipe;
 
 typedef struct		s_data
 {

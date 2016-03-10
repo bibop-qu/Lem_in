@@ -37,7 +37,7 @@ t_room		*ft_add_room(t_room *room, char *line)
 	}
 }
 
-t_pipe		*ft_add_pipe(t_pipe *pipe, char *line)
+t_pipe		*ft_add_pipe(t_pipe *pipe, char *line, t_room *room)
 {
 	t_pipe	*new;
 	t_pipe	*tmp;
@@ -45,8 +45,8 @@ t_pipe		*ft_add_pipe(t_pipe *pipe, char *line)
 
 	new = (t_pipe *)malloc(sizeof(t_pipe));
 	tab = ft_strsplit(line, '-');
-	new->room_1 = ft_strdup(tab[0]);
-	new->room_2 = ft_strdup(tab[1]);
+	new->room_1 = find_room(room, tab[0]);
+	new->room_2 = find_room(room, tab[1]);
 	new->next = NULL;
 	tmp = pipe;
 	free_tab(tab);
@@ -61,18 +61,18 @@ t_pipe		*ft_add_pipe(t_pipe *pipe, char *line)
 	}
 }
 
-int		find_room(t_room *room, char *str)
+t_room		*find_room(t_room *room, char *str)
 {
 	t_room	*tmp;
 
 	tmp = room;
-	while (tmp->next)
+	while (tmp)
 	{
-		if (!ft_strcmp(room->name, str))
-			return (1);
+		if (!ft_strcmp(tmp->name, str))
+			return (tmp);
 		tmp = tmp->next;
 	}
-	return (0);
+	return (NULL);
 }
 
 t_room	*end_room(t_room *room)

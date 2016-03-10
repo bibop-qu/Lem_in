@@ -34,12 +34,12 @@ void	print_anthill(t_data *anthill)
 		ft_putchar('\n');
 		tmp_room = tmp_room->next;
 	}
-	while (tmp_pipe)
-	{
-		ft_putstr(tmp_pipe->room_1);
-		ft_putchar('-');
-		ft_putstr(tmp_pipe->room_2);
-		ft_putchar('\n');
-		tmp_pipe = tmp_pipe->next;
-	}
+	// while (tmp_pipe)
+	// {
+	// 	ft_putstr(tmp_pipe->room_1);
+	// 	ft_putchar('-');
+	// 	ft_putstr(tmp_pipe->room_2);
+	// 	ft_putchar('\n');
+	// 	tmp_pipe = tmp_pipe->next;
+	// }
 }

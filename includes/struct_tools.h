@@ -14,8 +14,8 @@
 # define STRUCT_TOOLS_H
 
 t_room	*ft_add_room(t_room *room, char *line);
-t_pipe	*ft_add_pipe(t_pipe *pipe, char *line);
-int		find_room(t_room *room, char *str);
+t_pipe	*ft_add_pipe(t_pipe *pipe, char *line, t_room *room);
+t_room	*find_room(t_room *room, char *str);
 t_room	*end_room(t_room *room);
 
 #endif

@@ -16,8 +16,13 @@ int		main(void)
 {
 	t_data	anthill;
 
+	anthill.start = NULL;
+	anthill.end = NULL;
 	if (verif_anthill(&anthill))
+	{
+		ft_putchar('\n');
 		print_anthill(&anthill);
+	}
 	else
 		ft_error("ERROR");
 	return (0);

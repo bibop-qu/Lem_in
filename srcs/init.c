@@ -12,22 +12,24 @@
 
 #include "lem-in.h"
 
-void	init_pipe(t_pipe **pipe, t_room *room, char *line)
+ int	init_pipe(t_pipe **pipe, t_room *room, char *line)
 {
-	ft_putendl(line);
 	if (verif_line_pipe(line, room))
-		*pipe = ft_add_pipe(*pipe, line);
-	ft_putstr((*pipe)->room_1);
-	ft_putchar('\n');
-	while (get_next_line(0, &line))
+		ft_add_pipe(*pipe, line, room);
+	else if (!ft_strncmp(line, "#", 1))
+		;
+	else 
+		return (0);
+	while (get_next_line(0, &line) && (!ft_strncmp(line, "#", 1) || verif_line_pipe(line, room)))
 	{
 		if (!ft_strncmp(line, "#", 1))
 			;
-		else if (verif_line_pipe(line, room))
-			*pipe = ft_add_pipe(*pipe, line);
+		else if (verif_line_pipe(line, room) == 0)
+			return (0);
 		else
-			break;
+			ft_add_pipe(*pipe, line, room);
 	}
+	return (1);
 }
 
 void	init_room(t_data *anthill, t_room **room, char **line)
@@ -36,17 +38,29 @@ void	init_room(t_data *anthill, t_room **room, char **line)
 	{
 		if (!ft_strncmp(*line, "#", 1))
 		{
-			if (!ft_strcmp(*line, "##start"))
+			if ((!ft_strcmp(*line, "##start") && anthill->start != NULL) || (!ft_strcmp(*line, "##end") && anthill->end != NULL))
+				ft_error("TWO START IS TO BAD");
+			else if (!ft_strcmp(*line, "##start") && anthill->start == NULL)
 			{
 				get_next_line(0, line);
-				*room = ft_add_room(*room, *line);
-				anthill->start = end_room(*room);
+				if (verif_line_room(*line))
+				{
+					*room = ft_add_room(*room, *line);
+					anthill->start = end_room(*room);
+				}
+				else
+					ft_error("ERROR");
 			}
 			else if (!ft_strcmp(*line, "##end"))
 			{
 				get_next_line(0, line);
-				*room = ft_add_room(*room, *line);
-				anthill->end = end_room(*room);
+				if (verif_line_room(*line))
+				{
+					*room = ft_add_room(*room, *line);
+					anthill->end = end_room(*room);	
+				}
+				else
+					ft_error("ERROR");
 			}
 		}
 		else
@@ -69,9 +83,10 @@ int		verif_anthill(t_data *anthill)
 	else
 		ft_error("WRONG NUMBER OF ANTH !!");
 	init_room(anthill, &room, &line);
-	if (anthill->start = NULL || anthill->end == NULL)
+	if (anthill->start == NULL || anthill->end == NULL)
 		ft_error("COME ON GIVE ME A START AND A END");
 	init_pipe(&pipe, room, line);
+//	ft_putendl(pipe->room_1->name);
 	anthill->room = room;
 	anthill->pipe = pipe;
 	return (1);
