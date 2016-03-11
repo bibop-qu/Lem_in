@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 14:59:18 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/09 16:26:14 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:41:21 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_room		*find_room(t_room *room, char *str)
 	return (NULL);
 }
 
-t_room	*end_room(t_room *room)
+t_room		*end_room(t_room *room)
 {
 	t_room	*tmp;
 

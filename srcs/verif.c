@@ -6,11 +6,28 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 14:43:03 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/09 15:31:47 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:45:00 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem-in.h"
+
+int		exist_room(t_room *room, char *line)
+{
+	char	**tab;
+	t_room	*tmp;
+
+	tmp = room;
+	tab = ft_strsplit(line, ' ');
+	while (tmp)
+	{
+		if (!ft_strcmp(tab[0], room->name) ||
+			(ft_atoi(tab[1]) == room->pos_x && ft_atoi(tab[2]) == room->pos_y))
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
 
 int		ft_strform(char *str, int id)
 {

@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 16:42:35 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/09 15:22:25 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:10:24 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,8 @@ int		main(void)
 
 	anthill.start = NULL;
 	anthill.end = NULL;
-	if (verif_anthill(&anthill))
-	{
-		ft_putchar('\n');
+	if (init_anthill(&anthill))
 		print_anthill(&anthill);
-	}
 	else
 		ft_error("ERROR");
 	return (0);

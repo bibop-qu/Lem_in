@@ -6,13 +6,13 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 18:01:28 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/07 19:43:47 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/11 15:17:35 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INIT_H
 # define INIT_H
 
-int		verif_anthill(t_data *anthill);
+int		init_anthill(t_data *anthill);
 
 #endif
