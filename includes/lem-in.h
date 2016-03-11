@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:53:29 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/09 15:19:50 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/11 17:55:33 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@
 # include "verif.h"
 # include "struct_tools.h"
 # include "print.h"
+# include "resolve.h"
 #endif

@@ -6,11 +6,26 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:48:53 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/09 15:20:56 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/11 18:35:59 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem-in.h"
+
+int		size_pipe(t_pipe *pipe)
+{
+	int		i;
+	t_pipe	*tmp;
+
+	i = 0;
+	tmp = pipe;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}
 
 void	ft_error(char *error)
 {
