@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 14:59:18 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/11 19:02:00 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/15 18:24:10 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_room		*ft_add_room(t_room *room, char *line)
 	new->name = ft_strdup(tab[0]);
 	new->pos_x = ft_atoi(tab[1]);
 	new->pos_y = ft_atoi(tab[2]);
+	new->neighbors = NULL;
 	new->next = NULL;
 	tmp = room;
 	free_tab(tab);

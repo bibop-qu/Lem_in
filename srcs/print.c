@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 15:11:25 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/11 15:40:57 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/15 18:55:58 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,34 @@ void	print_end(t_data *anthill)
 	ft_putchar('\n');
 }
 
+void	print_neighbors(t_data *anthill)
+{
+	t_room	*tmp;
+	t_neigh	*lol;
+
+	tmp = anthill->start;
+	ft_putendl("======== NEIGHBORS ======");
+	while (tmp)
+	{
+		lol = tmp->neighbors;
+		ft_putstr(tmp->name);
+		ft_putstr(": ");
+		while (lol)
+		{
+			ft_putstr(lol->room->name);
+			if (lol->next)
+				ft_putstr(", ");
+			lol = lol->next;
+		}
+		ft_putchar('\n');
+		tmp = tmp->next;
+	}
+}
+
 void	print_anthill(t_data *anthill)
 {
-	t_room	*tmp_room;
 	t_pipe	*tmp_pipe;
 
-	tmp_room = anthill->room;
 	tmp_pipe = anthill->pipe;
 	if (anthill->nbr_ant)
 	{
@@ -78,4 +100,6 @@ void	print_anthill(t_data *anthill)
 		ft_putchar('\n');
 		tmp_pipe = tmp_pipe->next;
 	}
+	ft_putchar('\n');
+	print_neighbors(anthill);
 }
