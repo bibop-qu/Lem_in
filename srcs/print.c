@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 15:11:25 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/15 18:55:58 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/17 21:48:51 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,36 @@ void	print_neighbors(t_data *anthill)
 	}
 }
 
+void	print_map(t_data *anthill)
+{
+	t_map	*tmp;
+	t_room	*tmp_2;
+
+	tmp = anthill->map;
+	ft_putendl("========== MAP ========");
+	while(tmp)
+	{
+		tmp_2 = tmp->road;
+		while (tmp_2)
+		{
+			ft_putstr(tmp_2->name);
+			if (tmp->next)
+				ft_putstr("->");
+			tmp_2 = tmp_2->next;
+		}
+		ft_putchar('\n');
+		tmp = tmp->next;
+	}
+}
+
 void	print_anthill(t_data *anthill)
 {
 	t_pipe	*tmp_pipe;
 
 	tmp_pipe = anthill->pipe;
+	ft_putchar('\n');
+	ft_putendl("======== DATA ========");
+	ft_putchar('\n');
 	if (anthill->nbr_ant)
 	{
 		ft_putnbr(anthill->nbr_ant);
@@ -102,4 +127,5 @@ void	print_anthill(t_data *anthill)
 	}
 	ft_putchar('\n');
 	print_neighbors(anthill);
+	print_map(anthill);
 }

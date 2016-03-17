@@ -6,7 +6,7 @@
 #    By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/06 15:15:27 by basle-qu          #+#    #+#              #
-#    Updated: 2016/03/07 16:47:59 by basle-qu         ###   ########.fr        #
+#    Updated: 2016/03/17 19:36:43 by basle-qu         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -40,7 +40,7 @@ get_next_line.o \
 special.o ft_putlnbr.o ft_putunbr.o
 
 NAME = libft.a
-CFLAG = -Wall -Wextra -Werror
+CFLAG = -Wall -Wextra -Werror -g
 
 .PHONY: all test clean fclean re
 
