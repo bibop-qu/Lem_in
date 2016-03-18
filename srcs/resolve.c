@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 15:49:18 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/18 19:10:02 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/18 20:40:48 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	cut_road(t_road *road)
 
 int	init_map(t_data *anthill, t_road *place, t_room *neigh)
 {
-	t_road	*tmp;
+ 	t_road	*tmp;
 	t_neigh	*tmp_2;
 
 	tmp = place;
@@ -113,8 +113,10 @@ int	init_map(t_data *anthill, t_road *place, t_room *neigh)
 	while (tmp_2)
 	{
 		if (find_road(place, tmp_2->room->name) == NULL)
+		{
 			init_map(anthill, place, tmp_2->room);
-		cut_road(place);
+			cut_road(place);
+		}
 		tmp_2 = tmp_2->next;
 	}
 	return (0);
