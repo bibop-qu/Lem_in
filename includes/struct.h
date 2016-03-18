@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 18:56:52 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/17 17:41:45 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/18 15:30:23 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,15 @@ typedef struct		s_pipe
 	struct s_pipe	*next;
 }					t_pipe;
 
+typedef struct		s_road
+{
+	t_room			*room;
+	struct s_road	*next;
+}					t_road;
+
 typedef struct		s_map
 {
-	t_room			*road;
+	t_road			*road;
 	int				size;
 	struct s_map	*next;
 }					t_map;

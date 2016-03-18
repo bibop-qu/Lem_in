@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 14:59:18 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/17 21:47:31 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/18 16:32:01 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,20 @@ t_pipe		*ft_add_pipe(t_pipe *pipe, char *line, t_room *room)
 		tmp->next = new;
 		return (pipe);
 	}
+}
+
+t_road		*find_road(t_road *road, char *str)
+{
+	t_road	*tmp;
+
+	tmp = road;
+	while (tmp)
+	{
+		if (!ft_strcmp(tmp->room->name, str))
+			return (tmp);
+		tmp = tmp->next;
+	}
+	return (NULL);
 }
 
 t_room		*find_room(t_room *room, char *str)
