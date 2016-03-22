@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 18:56:52 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/18 15:30:23 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/22 15:38:58 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,14 @@ typedef struct		s_neigh
 	t_room			*room;
 	struct s_neigh	*next;
 }					t_neigh;
+
+typedef	struct		s_anth
+{
+	int				nb;
+	t_map			*map;
+	t_road			*road;
+	struct s_anth	next;
+}					t_anth;
 
 typedef struct		s_data
 {

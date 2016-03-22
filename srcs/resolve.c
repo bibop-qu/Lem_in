@@ -6,7 +6,7 @@
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/11 15:49:18 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/18 20:40:48 by basle-qu         ###   ########.fr       */
+/*   Updated: 2016/03/22 15:45:21 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void	init_neighbour(t_data *anthill)
 
 int		resolve(t_data *anthill)
 {
+	int	nb_road;
+
+	nb_road = 0;
 	anthill->map = NULL;
 	init_neighbour(anthill);
 	init_map(anthill, NULL, anthill->start);
@@ -54,5 +57,7 @@ int		resolve(t_data *anthill)
 		ft_error("NO ROAD BETWEEN START AND END, TRY AGAIN !!");
 	size_road(anthill);
 	sort_map(anthill);
+	nb_road = best_neighbors(anthill->start, anthill->end);
+	do_lem_in(anthill);
 	return (0);
 }

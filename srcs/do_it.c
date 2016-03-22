@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   do_it.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/07 17:50:00 by basle-qu          #+#    #+#             */
-/*   Updated: 2016/03/22 15:19:59 by basle-qu         ###   ########.fr       */
+/*   Created: 2016/03/22 15:39:21 by basle-qu          #+#    #+#             */
+/*   Updated: 2016/03/22 15:42:19 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#include "lem-in.h"
 
-void	ft_error(char *error);
-void	free_tab(char **tab);
-int		best_neighbors(t_room *start, t_room *end);
+int		do_lem_in(t_data *anthill)
+{
 
-#endif
+}
