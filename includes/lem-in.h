@@ -23,5 +23,7 @@
 # include "struct_tools.h"
 # include "print.h"
 # include "resolve.h"
+# include "map.h"
+# include "sort.h"
 
 #endif

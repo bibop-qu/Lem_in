@@ -12,6 +12,35 @@
 
 #include "lem-in.h"
 
+int		verif_pipe(char *room_1, char *room_2, char **tab)
+{
+	if (!ft_strcmp(room_1, tab[0]) && !ft_strcmp(room_2, tab[1]))
+		return (1);
+	if (!ft_strcmp(room_1, tab[1]) && !ft_strcmp(room_2, tab[0]))
+		return (1);
+	return (0);
+}
+
+int		exist_pipe(t_pipe *pipe, char *line)
+{
+	t_pipe	*tmp;
+	char	**tab;
+	
+	tmp = pipe;
+	tab = ft_strsplit(line, '-');
+	while (tmp)
+	{
+		if (verif_pipe(tmp->room_1->name, tmp->room_2->name, tab))
+		{
+			free_tab(tab);
+			return (1);
+		}
+		tmp = tmp->next;
+	}
+	free_tab(tab);
+	return (0);
+}
+
 int		exist_room(t_room *room, char *line)
 {
 	char	**tab;
@@ -23,9 +52,13 @@ int		exist_room(t_room *room, char *line)
 	{
 		if (!ft_strcmp(tab[0], room->name) ||
 			(ft_atoi(tab[1]) == room->pos_x && ft_atoi(tab[2]) == room->pos_y))
+		{
+			free_tab(tab);
 			return (1);
+		}
 		tmp = tmp->next;
 	}
+	free_tab(tab);
 	return (0);
 }
 

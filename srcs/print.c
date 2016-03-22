@@ -14,7 +14,7 @@
 
 void	print_start(t_data *anthill)
 {
-	ft_putendl("##start");
+	ft_putendl("\033[1;31m##start\033[00m");
 	ft_putstr(anthill->start->name);
 	ft_putchar(' ');
 	ft_putnbr(anthill->start->pos_x);
@@ -45,7 +45,7 @@ void	print_room(t_data *anthill)
 
 void	print_end(t_data *anthill)
 {
-	ft_putendl("##end");
+	ft_putendl("\033[1;31m##end\033[00m");
 	ft_putstr(anthill->end->name);
 	ft_putchar(' ');
 	ft_putnbr(anthill->end->pos_x);
@@ -60,7 +60,7 @@ void	print_neighbors(t_data *anthill)
 	t_neigh	*lol;
 
 	tmp = anthill->room;
-	ft_putendl("======== NEIGHBORS ======");
+	ft_putendl("\033[1;32m======== NEIGHBORS ======\033[00m");
 	while (tmp)
 	{
 		lol = tmp->neighbors;
@@ -84,7 +84,7 @@ void	print_map(t_data *anthill)
 	t_road	*tmp_2;
 
 	tmp = anthill->map;
-	ft_putendl("========== MAP ========");
+	ft_putendl("\033[1;32m=========== MAP =========\033[00m");
 	while(tmp)
 	{
 		tmp_2 = tmp->road;
@@ -93,6 +93,11 @@ void	print_map(t_data *anthill)
 			ft_putstr(tmp_2->room->name);
 			if (tmp_2->next)
 				ft_putstr("->");
+			else
+			{
+				ft_putstr(": ");
+				ft_putnbr(tmp->size);
+			}
 			tmp_2 = tmp_2->next;
 		}
 		ft_putchar('\n');
@@ -106,8 +111,7 @@ void	print_anthill(t_data *anthill)
 
 	tmp_pipe = anthill->pipe;
 	ft_putchar('\n');
-	ft_putendl("======== DATA ========");
-	ft_putchar('\n');
+	ft_putendl("\033[1;32m========== DATA =========\033[00m");
 	if (anthill->nbr_ant)
 	{
 		ft_putnbr(anthill->nbr_ant);
@@ -124,7 +128,6 @@ void	print_anthill(t_data *anthill)
 		ft_putchar('\n');
 		tmp_pipe = tmp_pipe->next;
 	}
-	ft_putchar('\n');
 	print_neighbors(anthill);
 	print_map(anthill);
 }

@@ -29,8 +29,15 @@ int		size_pipe(t_pipe *pipe)
 
 void	ft_error(char *error)
 {
-	write(2, error, ft_strlen(error));
+	char	*tmp;
+	char	*final;
+
+	tmp = ft_strjoin("\033[1;31m", error);
+	final = ft_strjoin(tmp, "\033[00m");
+	free(tmp);
+	write(2, final, ft_strlen(final));
 	write(2, "\n", 1);
+	free(final);
 	exit(1);
 }
 

@@ -17,5 +17,6 @@ int		verif_line_room(char *line);
 int		ft_strform(char *str, int id);
 int		verif_line_pipe(char *line, t_room *room);
 int		exist_room(t_room *room, char *line);
+int		exist_pipe(t_pipe *pipe, char *line);
 
 #endif

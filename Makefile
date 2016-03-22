@@ -13,7 +13,7 @@
 #			attention a bien virer le -g
 GCC =		gcc -Wall -Werror -Wextra -g
 NAME =		lem-in
-SRC =	srcs/main.c srcs/tools.c srcs/init.c srcs/verif.c srcs/struct_tools.c srcs/print.c srcs/resolve.c
+SRC =		srcs/main.c srcs/tools.c srcs/init.c srcs/verif.c srcs/struct_tools.c srcs/print.c srcs/resolve.c srcs/map.c srcs/sort.c
 
 OBJ =		$(SRC:.c=.o)
 

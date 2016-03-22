@@ -25,8 +25,10 @@ int		init_pipe(t_pipe **pipe, t_room *room, char *line)
 	{
 		if (!ft_strncmp(line, "#", 1))
 			;
-		else if (verif_line_pipe(line, room))
+		else if (verif_line_pipe(line, room) && !exist_pipe(*pipe, line))
 			*pipe = ft_add_pipe(*pipe, line, room);
+		else
+			return (0);
 	}
 	return (0);
 }
