@@ -56,7 +56,7 @@ typedef	struct		s_anth
 	int				nb;
 	t_map			*map;
 	t_road			*road;
-	struct s_anth	next;
+	struct s_anth	*next;
 }					t_anth;
 
 typedef struct		s_data

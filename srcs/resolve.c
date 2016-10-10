@@ -58,6 +58,6 @@ int		resolve(t_data *anthill)
 	size_road(anthill);
 	sort_map(anthill);
 	nb_road = best_neighbors(anthill->start, anthill->end);
-	do_lem_in(anthill);
+//	do_lem_in(anthill);
 	return (0);
 }

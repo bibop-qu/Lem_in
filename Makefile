@@ -1,42 +1,48 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: afollin <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: basle-qu <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/03/07 17:30:21 by afollin           #+#    #+#              #
-#    Updated: 2016/03/17 19:53:45 by basle-qu         ###   ########.fr        #
+#    Created: 2016/03/07 16:41:17 by basle-qu          #+#    #+#              #
+#    Updated: 2016/03/17 19:52:52 by basle-qu         ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
-#			attention a bien virer le -g
-GCC =		gcc -Wall -Werror -Wextra -g
-NAME =		lem-in
-SRC =		srcs/main.c srcs/tools.c srcs/init.c srcs/verif.c srcs/struct_tools.c srcs/print.c srcs/resolve.c srcs/map.c srcs/sort.c
+SRCS =	srcs/main.c srcs/tools.c srcs/init.c srcs/verif.c srcs/struct_tools.c \
+		srcs/print.c srcs/resolve.c srcs/map.c srcs/sort.c
+OBJS =	main.o tools.o init.o verif.o struct_tools.o print.o resolve.o map.o  \
+		sort.o
+NAME = lem-in
+CFLAG = -Wall -Wextra -Werror -g
 
-OBJ =		$(SRC:.c=.o)
+.PHONY: all test clean fclean re
 
-all:		$(NAME)
+all: $(NAME)
 
-lem-in:		$(OBJ)
-			make -C libft
-			$(GCC) -I includes -Ilibft/includes/ -I. -o lem-in $(OBJ) libft/libft.a
+$(NAME):
+	@make -C libft/ fclean
+	@make -C libft/
+	@make -C libft/ clean
+	@gcc -I includes -c $(CFLAG) $(SRCS)
+	@gcc -I includes -L libft/ -lft $(CFLAG) $(OBJS) -o $(NAME)
+	@echo "\033[1;36m##########   LEM-IN OK  ##########\033[00m"
+	@make clean
 
-main.o:		lemin.h
-
-%.o:		%.c
-			$(GCC) -I includes -Ilibft/includes/ -I. -o $@ -c $<
-
-.PHONY:		clean fclean re
+test: fclean
+	@gcc -I includes -c $(CFLAG) $(SRCS)
+	@gcc -I includes -L libft/ -lft $(CFLAG) $(OBJS) -o $(NAME)
+	@echo "\033[1;36m##########   LEM-IN OK  ##########\033[00m"
+	@make clean
 
 clean:
-			rm -rf $(OBJ)
-			make clean -C libft/
+	@rm -f $(OBJS)
 
-fclean:
-			rm -rf $(OBJ)
-			rm -rf $(NAME)
-			make fclean -C libft/
+fclean: clean
+	@rm -f $(NAME)
 
-re:			fclean $(NAME)
+cleanall: fclean
+	@make -C libft/ fclean
+
+re: fclean $(NAME)

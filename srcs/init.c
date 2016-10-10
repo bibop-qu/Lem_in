@@ -20,9 +20,11 @@ int		init_pipe(t_pipe **pipe, t_room *room, char *line)
 		*pipe = ft_add_pipe(*pipe, line, room);
 	else
 		return (0);
+	ft_putendl(line);
 	while (get_next_line(0, &line) && (!ft_strncmp(line, "#", 1) ||
 								verif_line_pipe(line, room)))
 	{
+		ft_putendl(line);
 		if (!ft_strncmp(line, "#", 1))
 			;
 		else if (verif_line_pipe(line, room) && !exist_pipe(*pipe, line))
@@ -57,13 +59,16 @@ void	init_ext(t_data *anthill, t_room **room, char **line)
 		else
 			ft_error("ERROR");
 	}
+	ft_putendl(*line);
 }
 
 void	init_room(t_data *anthill, t_room **room, char **line)
 {
+	ft_putendl(*line);
 	while (get_next_line(0, line) && (!ft_strncmp(*line, "#", 1) ||
 								verif_line_room(*line)))
 	{
+		ft_putendl(*line);
 		if (!ft_strncmp(*line, "#", 1))
 		{
 			if ((!ft_strcmp(*line, "##start") && anthill->start != NULL) ||
