@@ -47,6 +47,7 @@ void	init_ext(t_data *anthill, t_room **room, char **line)
 		}
 		else
 			ft_error("ERROR");
+		ft_putendl(*line);
 	}
 	else if (!ft_strcmp(*line, "##end"))
 	{
@@ -58,8 +59,8 @@ void	init_ext(t_data *anthill, t_room **room, char **line)
 		}
 		else
 			ft_error("ERROR");
+		ft_putendl(*line);
 	}
-	ft_putendl(*line);
 }
 
 void	init_room(t_data *anthill, t_room **room, char **line)

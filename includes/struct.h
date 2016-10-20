@@ -40,6 +40,7 @@ typedef struct		s_road
 typedef struct		s_map
 {
 	t_road			*road;
+	int				used;
 	int				size;
 	struct s_map	*next;
 }					t_map;
@@ -51,13 +52,13 @@ typedef struct		s_neigh
 	struct s_neigh	*next;
 }					t_neigh;
 
-typedef	struct		s_anth
+typedef	struct		s_ant
 {
 	int				nb;
 	t_map			*map;
 	t_road			*road;
-	struct s_anth	*next;
-}					t_anth;
+	struct s_ant	*next;
+}					t_ant;
 
 typedef struct		s_data
 {

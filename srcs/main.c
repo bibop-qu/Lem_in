@@ -12,6 +12,8 @@
 
 #include "lem-in.h"
 
+void	print_walk(t_data *data);
+
 int		main(void)
 {
 	t_data	anthill;
@@ -21,7 +23,9 @@ int		main(void)
 	if (init_anthill(&anthill))
 		{
 			resolve(&anthill);
-			print_anthill(&anthill);
+			if (!anthill.map->next)
+				ft_error("PATH SO OBVIOUS");
+			print_walk(&anthill);
 		}
 	else
 		ft_error("ERROR");

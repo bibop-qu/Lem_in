@@ -11,9 +11,9 @@
 #******************************************************************************#
 
 SRCS =	srcs/main.c srcs/tools.c srcs/init.c srcs/verif.c srcs/struct_tools.c \
-		srcs/print.c srcs/resolve.c srcs/map.c srcs/sort.c
+		srcs/print.c srcs/resolve.c srcs/map.c srcs/sort.c srcs/print_walk.c
 OBJS =	main.o tools.o init.o verif.o struct_tools.o print.o resolve.o map.o  \
-		sort.o
+		sort.o print_walk.o
 NAME = lem-in
 CFLAG = -Wall -Wextra -Werror -g
 
