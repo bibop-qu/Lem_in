@@ -54,10 +54,9 @@ int		resolve(t_data *anthill)
 	init_neighbour(anthill);
 	init_map(anthill, NULL, anthill->start);
 	if (!anthill->map)
-		ft_error("NO ROAD BETWEEN START AND END, TRY AGAIN !!");
+		ft_error("NO ROAD BETWEEN START AND END, TRY AGAIN !!", anthill);
 	size_road(anthill);
 	sort_map(anthill);
 	nb_road = best_neighbors(anthill->start, anthill->end);
-//	do_lem_in(anthill);
 	return (0);
 }

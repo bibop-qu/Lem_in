@@ -34,6 +34,7 @@ typedef struct		s_pipe
 typedef struct		s_road
 {
 	t_room			*room;
+	int				usd;
 	struct s_road	*next;
 }					t_road;
 
@@ -68,6 +69,15 @@ typedef struct		s_data
 	t_pipe	*pipe;
 	t_room	*start;
 	t_room	*end;
+	int		nbr_turn;
+	int		o_d;
+	int		o_D;
+	int		o_e;
+	int		o_c;
+	int		o_m;
+	int		o_n;
+	int		o_p;
+	
 }					t_data;
 
 #endif

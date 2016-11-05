@@ -46,7 +46,7 @@ void	init_ext(t_data *anthill, t_room **room, char **line)
 			anthill->start = end_room(*room);
 		}
 		else
-			ft_error("ERROR");
+			ft_error("ERROR WITH START", anthill);
 		ft_putendl(*line);
 	}
 	else if (!ft_strcmp(*line, "##end"))
@@ -58,7 +58,7 @@ void	init_ext(t_data *anthill, t_room **room, char **line)
 			anthill->end = end_room(*room);
 		}
 		else
-			ft_error("ERROR");
+			ft_error("ERROR WITH END", anthill);
 		ft_putendl(*line);
 	}
 }
@@ -74,14 +74,14 @@ void	init_room(t_data *anthill, t_room **room, char **line)
 		{
 			if ((!ft_strcmp(*line, "##start") && anthill->start != NULL) ||
 				(!ft_strcmp(*line, "##end") && anthill->end != NULL))
-				ft_error("NEED JUST ONE START AND ONE END");
+				ft_error("NEED JUST ONE START AND ONE END", anthill);
 			else
 				init_ext(anthill, room, line);
 		}
 		else if (!exist_room(*room, *line))
 			*room = ft_add_room(*room, *line);
 		else
-			ft_error("ERROR");
+			ft_error("ERROR", anthill);
 	}
 }
 
@@ -98,15 +98,15 @@ int		init_anthill(t_data *anthill)
 	if (ft_strform(line, 1) && ft_atoi(line) > 0)
 		anthill->nbr_ant = ft_atoi(line);
 	else
-		ft_error("WRONG NUMBER OF ANTH !!");
+		ft_error("WRONG NUMBER OF ANTH !!", anthill);
 	init_room(anthill, &room, &line);
 	if (!room)
-		ft_error("NO ROOM REALLY ?!!");
+		ft_error("NO ROOM REALLY ?!!", anthill);
 	if (!anthill->start || !anthill->end)
-		ft_error("COME ON GIVE ME A START AND A END BUDY !!");
+		ft_error("COME ON GIVE ME A START AND A END BUDY !!", anthill);
 	init_pipe(&pipe, room, line);
 	if (!pipe)
-		ft_error("COME ON GIVE ME A PIPE AT LEAST BUDY !!");
+		ft_error("COME ON GIVE ME A PIPE AT LEAST BUDY !!", anthill);
 	anthill->room = room;
 	anthill->pipe = pipe;
 	return (1);

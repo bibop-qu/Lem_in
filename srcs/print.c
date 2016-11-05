@@ -111,23 +111,28 @@ void	print_anthill(t_data *anthill)
 
 	tmp_pipe = anthill->pipe;
 	ft_putchar('\n');
-	ft_putendl("\033[1;32m========== DATA =========\033[00m");
-	if (anthill->nbr_ant)
+	if (anthill->o_m || (!anthill->o_n && !anthill->o_p))
 	{
-		ft_putnbr(anthill->nbr_ant);
-		ft_putchar('\n');
+		ft_putendl("\033[1;32m========== DATA =========\033[00m");
+		if (anthill->nbr_ant)
+		{
+			ft_putnbr(anthill->nbr_ant);
+			ft_putchar('\n');
+		}
+		print_start(anthill);
+		print_room(anthill);
+		print_end(anthill);
+		while (tmp_pipe)
+		{
+			ft_putstr(tmp_pipe->room_1->name);
+			ft_putchar('-');
+			ft_putstr(tmp_pipe->room_2->name);
+			ft_putchar('\n');
+			tmp_pipe = tmp_pipe->next;
+		}
 	}
-	print_start(anthill);
-	print_room(anthill);
-	print_end(anthill);
-	while (tmp_pipe)
-	{
-		ft_putstr(tmp_pipe->room_1->name);
-		ft_putchar('-');
-		ft_putstr(tmp_pipe->room_2->name);
-		ft_putchar('\n');
-		tmp_pipe = tmp_pipe->next;
-	}
-	print_neighbors(anthill);
-	print_map(anthill);
+	if (!anthill->o_p && !anthill->o_m)
+		print_neighbors(anthill);
+	if (!anthill->o_n && !anthill->o_m)
+		print_map(anthill);
 }

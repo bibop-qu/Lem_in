@@ -13,7 +13,7 @@
 #ifndef TOOLS_H
 # define TOOLS_H
 
-void	ft_error(char *error);
+void	ft_error(char *error, t_data *anthill);
 void	free_tab(char **tab);
 int		best_neighbors(t_room *start, t_room *end);
 

@@ -47,17 +47,21 @@ int		size_pipe(t_pipe *pipe)
 	return (i);
 }
 
-void	ft_error(char *error)
+void	ft_error(char *error, t_data *anthill)
 {
 	char	*tmp;
 	char	*final;
-
-	tmp = ft_strjoin("\033[1;31m", error);
-	final = ft_strjoin(tmp, "\033[00m");
-	free(tmp);
-	write(2, final, ft_strlen(final));
-	write(2, "\n", 1);
-	free(final);
+	if (!anthill->o_e)
+		write(2, "error\n", 6);
+	else
+	{
+		tmp = ft_strjoin("\033[1;31m", error);
+		final = ft_strjoin(tmp, "\033[00m");
+		free(tmp);
+		write(2, final, ft_strlen(final));
+		write(2, "\n", 1);
+		free(final);
+	}
 	exit(1);
 }
 

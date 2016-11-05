@@ -57,6 +57,7 @@ t_road	*add_road(t_room *room)
 
 	new = (t_road *)malloc(sizeof(t_road));
 	new->room = room;
+	new->usd = 0;
 	new->next = NULL;
 	return (new);
 }
